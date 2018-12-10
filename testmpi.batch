@@ -1,0 +1,16 @@
+#! /bin/bash -l
+#SBATCH -J testMPI
+#SBATCH -N 2
+#SBATCH --ntasks-per-node 2
+#SBATCH --mem 1000
+#SBATCH --time 00:30:00
+#SBATCH -A G74-3
+#SBATCH -p topola
+#SBATCH --output="testmpi.out"
+#SBATCH --mail-type=ALL
+
+module load common/mpi/openmpi/3.0.0
+module load rx/gnu/3.4.0
+
+mpirun -n 1 Rscript mpitest2.R
+

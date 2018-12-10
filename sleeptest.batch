@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -J stest
+#SBATCH -p topola
+#SBATCH -N 1
+#SBATCH -n 4
+
+date
+
+srun -n1 ./sleepme.sh 100 &
+srun -n1 ./sleepme.sh 100 &
+srun -n1 ./sleepme.sh 100 &
+srun -n1 ./sleepme.sh 100 &
+
+wait
+
+date
